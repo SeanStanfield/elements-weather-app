@@ -6,6 +6,7 @@ export const WeatherIcon = ({condition, temp}) => {
 
     const [iconStyle, setIconStyle] = useState(faCloudSun);
 
+    //set weather icon based on current condition.
     useEffect(()=>{
         if (condition && temp){
         if (condition.toLowerCase().includes('sunny')){
@@ -19,13 +20,10 @@ export const WeatherIcon = ({condition, temp}) => {
             setIconStyle(faCloudSun);
         }
         }
-        console.log('ran use effect', condition);
-
     }, [condition, temp])
 
     return(
         <div>
-
             <FontAwesomeIcon size={"2x"} icon={iconStyle} />
             <p style={{fontSize: 16}}>Expected temperature is {temp} degrees and conditions will be {condition}</p>
         </div>

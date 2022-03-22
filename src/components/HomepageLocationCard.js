@@ -18,8 +18,11 @@ const HomepageLocationCard = ({data}) => {
     const [dialogOpen, setDialogOpen] = useState(false);
     const [newCityValue, setNewCityValue] = useState('');
 
+    //toggle the shown temperature based on current mode
     let shownTemp = context.useCelsius ? currentCondition.currentTempC : currentCondition.currentTempF;
 
+    //get current data and store in state
+    //TODO hide api key with netlify functions
     function getWeatherData(data) {
         axios.get(`https://api.weatherapi.com/v1/current.json?key=43a7112254df448c886211019221803&q=${data.name}&aqi=no`)
             .then((response) => {
@@ -27,24 +30,20 @@ const HomepageLocationCard = ({data}) => {
                         currentTempC: response.data.current.temp_c,
                         currentTempF: response.data.current.temp_f,
                         condition: response.data.current.condition.text,
-
                     }
-
-
                 );
             }).catch((error) => {
             console.log(error);
         });
     }
 
+    //get updated weather data, when the card data (e.g city name) changes
     useEffect( () =>{
         getWeatherData(data);
 
     }, [data])
 
     const toggleFav = () =>{
-        console.log('called from inside', data.isFavourite);
-
         context.toggleFavourite(data);
     }
 
@@ -85,6 +84,7 @@ const HomepageLocationCard = ({data}) => {
                 </CardActions>
             </Card>
 
+            {/*Dialog used for updating the city name*/}
             <Dialog open={dialogOpen} onClose={closeDialog}>
                 <DialogTitle>Change Location</DialogTitle>
                 <DialogContent>

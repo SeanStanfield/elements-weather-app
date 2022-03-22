@@ -5,12 +5,12 @@ import {WeatherIcon} from "./WeatherIcon";
 import {Box} from "@mui/material";
 import Card from "@mui/material/Card";
 
-
 export const SelectedLocation = ({city})=>{
 
     const [currentForecast, setCurrentForecast] = useState('unset');
     const context = useContext(GlobalContext);
 
+    //get forecast data for the week ahead
     function getForecast(city) {
         axios.get(`https://api.weatherapi.com/v1/forecast.json?key=43a7112254df448c886211019221803&q=${city.name}&days=5&aqi=no&alerts=no`)
             .then((response) => {
@@ -31,7 +31,7 @@ export const SelectedLocation = ({city})=>{
 
     }, [city])
 
-    return( <Box sx={{bgcolor: '#F2F2F2', paddingTop: 2}}>
+    return( <Box sx={{bgcolor: '#E8E8E8', paddingTop: 2}}>
 
         <h1 style={{padding: 0, marginTop: 0}}>The week ahead for {city.name}</h1>
         <h3>Current Temp:{currentForecast.currentTempC}</h3>
@@ -49,6 +49,5 @@ export const SelectedLocation = ({city})=>{
             )
         })}
         </Box>
-
     </Box>)
 }
