@@ -4,9 +4,6 @@ import HomepageLocationCard from "./components/HomepageLocationCard";
 import React, {useState} from "react";
 import {Box, Button, Container, Switch, TextField} from "@mui/material";
 import {SelectedLocation} from "./components/SelectedLocation";
-import { faHome, faSnowflake, faSun, faCloud } from "@fortawesome/free-solid-svg-icons";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const GlobalContext = React.createContext({});
 
@@ -91,14 +88,14 @@ function App() {
 
 
 
-                        <h3 className="separator" sx={{backgroundColor: '#FAFAFA'}}>Favourites</h3>
+                        <h3 className="separator">Favourites</h3>
 
                         <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
                         {cities.filter(x => x!== selectedCity).map(city => {
                             if(city.isFavourite){
                                 return <HomepageLocationCard data={city} key = {city.name}/>
                             } else {
-                                return ''};
+                                return ''}
                         })}
                         </Box>
 
@@ -109,7 +106,7 @@ function App() {
                             if(!city.isFavourite){
                                 return <HomepageLocationCard data={city} key = {city.name}/>
                             } else {
-                                return ''};
+                                return ''}
                         })}
                         </Box>
 
@@ -121,6 +118,4 @@ function App() {
   );
 }
 
-
-const styles = StyleSheet.create
 export default App;

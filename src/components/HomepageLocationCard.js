@@ -9,8 +9,6 @@ import DialogContentText from "@mui/material/DialogContentText";
 import TextField from "@mui/material/TextField";
 import DialogActions from "@mui/material/DialogActions";
 import Dialog from "@mui/material/Dialog";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSnowflake} from "@fortawesome/free-solid-svg-icons";
 import {WeatherIcon} from "./WeatherIcon";
 const HomepageLocationCard = ({data}) => {
 
