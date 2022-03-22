@@ -27,7 +27,7 @@ export const WeatherIcon = ({condition, temp}) => {
         <div>
 
             <FontAwesomeIcon size={"2x"} icon={iconStyle} />
-            <p style={{fontSize: 16}}>Expected temperature is {temp} and conditions will be {condition}</p>
+            <p style={{fontSize: 16}}>Expected temperature is {temp} degrees and conditions will be {condition}</p>
         </div>
     );
 }

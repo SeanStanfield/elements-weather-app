@@ -31,18 +31,18 @@ export const SelectedLocation = ({city})=>{
 
     }, [city])
 
-    return( <div>
+    return( <Box sx={{bgcolor: '#F2F2F2', paddingTop: 2}}>
 
-        <h1>The week ahead for {city.name}</h1>
+        <h1 style={{padding: 0, marginTop: 0}}>The week ahead for {city.name}</h1>
         <h3>Current Temp:{currentForecast.currentTempC}</h3>
 
-        <Box component="span" sx={{ p: 2,  display: 'flex'}}>
+        <Box component="span" sx={{ p: 2,  display: 'flex', flexWrap: 'wrap'}}>
 
-        {currentForecast === 'unset' ? <p>Waiting for weather data</p> :
+        {currentForecast === 'unset' ? <p>Waiting for weather data</p>:
 
         currentForecast.forecast.map(child =>{
             return(
-                <Card sx={{m: 2, p: 1}} key={child.date_epoch}>
+                <Card sx={{m: 2, p: 1, flex:1, flexBasis: 220}} key={child.date_epoch}>
                     <h5>{child.date}</h5>
                     <WeatherIcon condition={child.day.condition.text} temp={context.useCelsius ? child.day.avgtemp_c : child.day.avgtemp_f}/>
                 </Card>
@@ -50,5 +50,5 @@ export const SelectedLocation = ({city})=>{
         })}
         </Box>
 
-    </div>)
+    </Box>)
 }

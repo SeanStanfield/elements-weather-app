@@ -67,12 +67,8 @@ function App() {
                     setSelectedCity: setSelectedCity,
                 }}>
 
-                    <header className="App-header">
-                        <section id="selected">
-                            <SelectedLocation city={selectedCity} />
 
-                        </section>
-                    </header>
+                    <SelectedLocation city={selectedCity} />
 
                     <main>
                         <Container sx={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
